@@ -1,0 +1,1332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Afrieta Community Internet</title>
+  <meta name="title" content="Afrieta" />
+  <meta name="description" content="AFRIETA Community Internet is a leading internet service provider that offers high-speed internet connectivity to residential and business customers." />
+
+  <link rel="shortcut icon" href="./icon.png" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
+  <link rel="preload" as="image" href="./assets/images/hero-slide-1.jpg" />
+  <link rel="preload" as="image" href="./assets/images/hero-slide-2.jpg" />
+  <link rel="preload" as="image" href="./assets/images/hero-slide-3.jpg" />
+
+  <style>
+         .navbar-link {
+         color: var(--white);
+         }
+
+         .header.active .navbar-link {
+         color: var(--charcoal);
+         }
+        .nav-open-btn {
+        color: var(--white);
+        }
+
+        .header.active .nav-open-btn {
+        color: var(--charcoal);
+        }
+    main {
+      padding: 50px 0;
+    }
+.terms {
+  text-decoration: underline;
+  color: #ee06ee
+}
+    section {
+      padding: 20px 0 !important;
+    }
+
+    .header {
+      background-color: #262626;
+    }
+
+    body {
+      color: #424141;
+    }
+
+    .subtext {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .chip {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #FFD700;
+      color: #000;
+    }
+
+    .speed {
+      margin-top: 8px;
+      font-size: 24px;
+      font-weight: 800
+    }
+
+    .tier {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .price {
+      margin-top: 13px;
+      font-size: 28px;
+      font-weight: 900
+    }
+
+    .per {
+      color: var(--muted);
+      font-size: 14px;
+      margin-left: 6px;
+      font-weight: 500
+    }
+
+    .hidden {
+      display: none !important
+    }
+
+    /* ===== Afrieta modal (namespaced) ===== */
+    :root {
+      --af-bg: #0b0f14;
+      --af-panel: #0f1621;
+      --af-border: rgba(255, 255, 255, .08);
+      --af-text: #f5f7fb;
+      --af-muted: #9fb0c6;
+      --af-accent: #ee06ee;
+      --af-shadow: 0 18px 60px rgba(0, 0, 0, .45);
+    }
+
+    .af-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 18, .65);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 10000;
+    }
+
+    .af-modal {
+      width: min(70%, 100%);
+      background: radial-gradient(1200px 600px at 70% -10%, #262626 0%, var(--af-panel) 55%);
+      border: 1px solid var(--af-border);
+      border-radius: 18px;
+      color: var(--af-text);
+      box-shadow: var(--af-shadow);
+      overflow: hidden;
+      transform: translateY(10px) scale(.98);
+      opacity: 0;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .af-modal .content {
+          height: 450px;
+          overflow: auto !important;
+    }
+
+    .af-backdrop[style*="display: flex"] .af-modal {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .af-modal__header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--af-border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0));
+    }
+
+    .af-modal__title {
+      font-weight: 800;
+      letter-spacing: .2px;
+      font-size: 18px;
+    }
+
+    .af-modal__body {
+      padding: 18px 20px 20px;
+    }
+
+    .af-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .af-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .af-grid-2, .af-grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .af-modal {
+      width: min(90%, 100%);
+      }
+          .grid {
+      display: grid;
+      grid-template-columns:  1fr;
+      gap: 16px
+    }
+    }
+.mdu-only {
+transition: opacity 0.25s ease;
+}
+.mdu-only[style*="display: none"] {
+opacity: 0;
+}
+
+    .af-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .af-field>label {
+      font-size: 14px;
+      color: var(--af-muted);
+    }
+     #signupForm {
+          padding: 40px;
+          box-shadow: var(--shadow-2);
+          border-radius: var(--radius-6);
+     }
+          #signupForm .af-field>label {
+            color: unset;
+          }
+    #signupForm .af-field>input,
+     #signupForm .af-field>select {
+    background: transparent;
+    border: 1px solid #424141;
+    color: unset;
+    border-radius: 10px;
+    padding: 10px 12px;
+    outline: none;
+    height: 49.19px;
+    }
+
+     #signupForm .af-field>input::placeholder {
+     color: #1b1b1b;
+     }
+
+    .af-field>input,
+    .af-field>select {
+      background: #0b121b;
+      border: 1px solid var(--af-border);
+      color: unset;
+      border-radius: 10px;
+      padding: 10px 12px;
+      outline: none;
+    }
+
+    .af-field>input::placeholder {
+      color: #6f8096;
+    }
+
+    .af-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .af-actions .btn:hover {
+      border: none;
+    }
+
+    .af-actions .btn-primary:hover {
+      background: #ee06ee;
+      color: #fff;
+    }
+
+    .af-field>input:focus {
+      box-shadow: 0 0 0 2px rgba(236, 5, 236, .35);
+      border-color: rgba(236, 5, 236, .55);
+    }
+     #signupForm .af-field>input:focus {
+      box-shadow: 0 0 0 2px #424141;
+      border-color: #424141;
+    }
+    /* ====== Toasts ====== */
+    #af-toast {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      display: grid;
+      gap: 10px;
+      z-index: 12000;
+    }
+
+    .af-toast {
+      min-width: 260px;
+      max-width: 360px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: #0b0f14;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .af-toast.info {
+      background: #ffe680;
+    }
+
+    .af-toast.success {
+      background: #a9f0d6;
+    }
+
+    .af-toast.error {
+      background: #ffc2c2;
+    }
+
+    /* Result block tweaks */
+    .result-block p {
+      margin: 4px 0;
+    }
+
+    .result-block h4 {
+      margin: 6px 0;
+      font-weight: 700;
+      color: #f5f7fb;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .badge.ok {
+      background: #a9f0d6;
+      color: #053b2e;
+    }
+
+    .badge.warn {
+      background: #ffe680;
+      color: #513e00;
+    }
+
+    .badge.err {
+      background: #ffc2c2;
+      color: #5c0000;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== Coverage Results Grid ===== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+.service-card {
+  background: #00A82D;
+  color: #fff;
+  position: relative;
+}
+    .product-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px 12px;
+      transition: all .2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .product-card h5 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #f5f7fb;
+    }
+
+    .product-card small {
+      color: #9fb0c6;
+      font-size: 12px;
+    }
+.error-text {
+color: #ff6b6b !important;
+font-size: 13px;
+margin-top: -4px;
+min-height: 18px; /* reserve space even when hidden */
+}
+
+.af-field.invalid input {
+border-color: #ff6b6b !important;
+box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.25) !important;
+}
+    .product-card p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #d8d8d8;
+    }
+    .result-block h4 {
+      font-size: 18px;
+    }
+    #signupForm .af-field.invalid > input,
+    #signupForm .af-field.invalid > select,
+    #signupForm .af-field.invalid > textarea {
+    border-color: #ff6b6b !important;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.25) !important;
+    }
+#signupForm .error-text {
+color: #ff6b6b !important;
+font-size: 13px;
+margin-top: 4px;
+font-weight: 500;
+}
+.invalid input[type="checkbox"] {
+  outline: 2px solid #ff6b6b;
+}
+.check-btn {
+  display: flex;
+  justify-content: end;
+}
+.check-btn button {
+  border: none;
+}
+  </style>
+</head>
+
+<body>
+  <header class="header" data-header>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="./assets/images/logo-white.png" width="150" height="80" alt="Adex home" class="logo-light" />
+        <img src="./assets/images/logo.png" width="150" height="80" alt="Adex home" class="logo-dark" />
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="/" class="logo"><img src="./assets/images/logo-white.png" width="150" height="80" alt="Adex home" /></a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li><a href="/" class="navbar-link">Home</a></li>
+          <li><a href="./#locations" class="navbar-link">Locations</a></li>
+          <li><a href="./#services" class="navbar-link">Services</a></li>
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">admin@afrieta.com</a>
+          <a href="tel:001234567890" class="contact-link">+(27) 16 880 0300</a>
+        </div>
+
+        <ul class="social-list">
+          <a href="http://wa.link/a7sfoi" target="_blank" class="mob-btn">
+            <div class="d-flex">
+              <ion-icon name="logo-whatsapp"></ion-icon>Chat with Us
+            </div>
+          </a>
+        </ul>
+      </nav>
+
+      <a href="http://wa.link/a7sfoi" target="_blank" class="btn btn-primary">
+        <div class="d-flex">
+          <ion-icon name="logo-whatsapp"></ion-icon>Chat with Us
+        </div>
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="mb-3">Afrieta Fibre Packages</h1>
+    <p class="subtext">Experience fast unlimited, uncapped fibre. No limits, Just Speed! Click to check your coverage below.</p>
+
+    <!-- WebConnect -->
+    <section class="section">
+      <h2>Afrieta AirConnect </h2>
+      <div class="grid af-grid-2" id="grid-airconnect"></div>
+    </section>
+    <!-- WebConnect -->
+    <section class="section">
+      <h2>Afrieta WebConnect </h2>
+      <div class="grid" id="grid-webconnect"></div>
+      <div class="grid" id="grid-webconnect"></div>
+    </section>
+
+    <!-- WebStream -->
+    <section class="section">
+      <h2>Afrieta WebStream</h2>
+      <div class="grid" id="grid-webstream"></div>
+    </section>
+
+    <!-- FibreConnect / Afrieta APL -->
+    <!-- <section class="section">
+      <h2>Afrieta FibreConnect </h2>
+      <div class="grid" id="grid-fibreconnect"></div>
+    </section> -->
+
+    <!-- Toasts + embedded area (now custom signup form, hidden by default) -->
+    <div id="af-toast"></div>
+    <div id="embed" class="embed-wrap hidden">
+      <!-- Custom Signup Form will be injected here -->
+      <div id="signupFormContainer"></div>
+    </div>
+  </main>
+
+  <!-- Coverage modal -->
+  <div class="af-backdrop" id="backdrop" aria-hidden="true">
+    <div class="af-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="af-modal__header">
+        <div id="modalTitle" class="af-modal__title">Check coverage</div>
+      </header>
+      <div class="af-modal__body">
+        <div class="content">
+          <form id="coverageForm">
+            <!-- <div class="af-field">
+              <label for="dwellingType">Dwelling Type</label>
+              <select id="dwellingType" name="dwellingType" required>
+                <option value="">-- Select Dwelling Type --</option>
+                <option value="SDU">Single Dwelling Unit (House)</option>
+                <option value="MDU">Multi Dwelling Unit (Flat, Apartment, Complex)</option>
+              </select>
+            </div> -->
+    
+            <div class="af-grid-2">
+              <div class="af-field">
+                <label for="houseNumber">Street Number</label>
+                <input id="houseNumber" name="houseNumber" placeholder="e.g., 303" required />
+              </div>
+              <div class="af-field">
+                <label for="streetName">Street Name</label>
+                <input id="streetName" name="streetName" placeholder="e.g., Onyx Street" required />
+              </div>
+            </div>
+    
+            <!-- MDU ONLY -->
+            <div class=" mdu-only">
+          <div class="af-field">
+  <label for="buildingName">Building Name (if applicable)</label>
+  <input id="buildingName" name="buildingName" placeholder="e.g., MOUILLE SANDS" />
+</div>
+
+            </div>
+    
+    
+            <div class="af-grid-2">
+              <div class="af-field">
+                <label for="suburbName">Suburb Name</label>
+                <input id="suburbName" name="suburbName" placeholder="e.g., Laudium" required />
+              </div>
+              <div class="af-field">
+                <label for="cityName">Town / City</label>
+                <input id="cityName" name="cityName" placeholder="e.g., Pretoria" required />
+              </div>
+            </div>
+    
+            <div class="af-grid-2">
+              <div class="af-field">
+                <label for="province">Province</label>
+                <input id="province" name="province" placeholder="e.g., Gauteng" required />
+              </div>
+              <div class="af-field">
+                <label for="postalCode">Postal Code</label>
+                <input id="postalCode" name="postalCode" inputmode="numeric" maxlength="4" placeholder="e.g., 0037" required />
+              </div>
+            </div>
+    
+            <div class="af-actions">
+              <button type="button" class="btn btn-dark" id="cancelBtn">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="submitBtn">Check Availability</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<footer class="footer">
+  <p>&copy; <b id="current-year"></b> Afrieta Pty Ltd. All rights reserved.</p>
+  <div class="text-two">
+    <a href="tel:+27168800300" class="underline">+(27) 16 880 0300</a>
+  </div>
+</footer>
+  <!-- Ionicons (for icons used in header buttons) -->
+
+  <script>
+    // Refactored Afrieta JS
+    // Drop this into a <script>
+     // tag or external.js file and include below your HTML.
+        (() => {
+          "use strict";
+
+          /* ---------------------- Data (packages) ---------------------- */
+           const AIR_CONNECT = [{
+              speed: "20 / 10 Mbs",
+              price: 489,
+              tag: "Popular",
+              cat: "AirConnect"
+            },
+            {
+              speed: "30 / 10 Mbs",
+              price: 589,
+              cat: "AirConnect"
+            }
+          ];
+          const WEB_CONNECT = [{
+              speed: "10 / 10 Mbs",
+              price: 379,
+              cat: "WebConnect"
+            },
+            {
+              speed: "20 / 10 Mbs",
+              price: 449,
+              tag: "Popular",
+              cat: "WebConnect"
+            },
+            {
+              speed: "40 / 20 Mbs",
+              price: 509,
+              cat: "WebConnect"
+            }
+          ];
+
+          const WEB_STREAM = [{
+              speed: "25 / 25 Mbs",
+              price: 639,
+              cat: "WebStream"
+            },
+            {
+              speed: "50 / 25 Mbs",
+              price: 799,
+              tag: "Popular",
+              cat: "WebStream"
+            },
+            {
+              speed: "100 / 50 Mbs",
+              price: 959,
+              cat: "WebStream"
+            },
+            {
+              speed: "200 / 100 Mbs",
+              price: 1099,
+              cat: "WebStream"
+            },
+            {
+              speed: "300 / 150 Mbs",
+              price: 1209,
+              cat: "WebStream"
+            },
+            {
+              speed: "500 / 250 Mbs",
+              price: 1399,
+              cat: "WebStream"
+            }
+          ];
+
+          const ALL_PACKAGES = [...AIR_CONNECT, ...WEB_CONNECT, ...WEB_STREAM];
+
+          const allPackages = [{
+              name: "Afrieta Fibre OWCA 20Mbps/10Mbps",
+              price: 489
+            },
+            {
+              name: "Afrieta Fibre OWCA 30Mbps/10Mbps",
+              price: 589
+            },{
+              name: "Afrieta Fibre OWC 10Mbps/10Mbps",
+              price: 379
+            },
+            {
+              name: "Afrieta Fibre OWC 20Mbps/10Mbps",
+              price: 449
+            },
+            {
+              name: "Afrieta Fibre OWC 40Mbps/20Mbps",
+              price: 509
+            },
+            {
+              name: "Afrieta Fibre OWS 25Mbps/25Mbps",
+              price: 639
+            },
+            {
+              name: "Afrieta Fibre OWS 50Mbps/25Mbps",
+              price: 799
+            },
+            {
+              name: "Afrieta Fibre OWS 100Mbps/50Mbps",
+              price: 959
+            },
+            {
+              name: "Afrieta Fibre OWS 200Mbps/100Mbps",
+              price: 1099
+            },
+            {
+              name: "Afrieta Fibre OWS 300Mbps/150Mbps",
+              price: 1209
+            },
+            {
+              name: "Afrieta Fibre OWS 500Mbps/250Mbps",
+              price: 1399
+            },
+            {
+              name: "Afrieta Premium Fibre OFC 50Mbs/25Mbs",
+              price: 750
+            },
+            {
+              name: "Afrieta Premium Fibre OFC 50Mbs/50Mbs",
+              price: 819
+            },
+            {
+              name: "Afrieta Premium Fibre OFC 100Mbs/50Mbs",
+              price: 919
+            },
+            {
+              name: "Afrieta Premium Fibre OFC 100Mbs/100Mbs",
+              price: 1045
+            },
+            {
+              name: "Afrieta Premium Fibre OFC 300Mbs/150Mbs",
+              price: 1299
+            },
+            {
+              name: "Afrieta Premium Fibre OFC 500Mbs/250Mbs",
+              price: 1550
+            }
+          ];
+
+          const toRand = v => `R${v.toLocaleString("en-ZA")}`;
+
+          /* ---------------------- DOM references ---------------------- */
+          const hosts = {
+            airconnect: document.getElementById("grid-airconnect"),
+            webconnect: document.getElementById("grid-webconnect"),
+            webstream: document.getElementById("grid-webstream")
+            // add fibreconnect if you enable it in HTML
+          };
+
+          const backdrop = document.getElementById("backdrop");
+          const modalTitle = document.getElementById("modalTitle");
+          const modalBody = document.querySelector(".af-modal__body");
+          const coverageForm = document.getElementById("coverageForm");
+          const submitBtn = document.getElementById("submitBtn");
+          const cancelBtn = document.getElementById("cancelBtn");
+          const afToastHost = document.getElementById("af-toast");
+          const embedWrap = document.getElementById("embed");
+          const signupFormContainer = document.getElementById("signupFormContainer");
+
+          if (!hosts.airconnect || !hosts.webconnect || !hosts.webstream || !backdrop || !coverageForm) {
+            console.warn("Essential DOM elements missing — make sure HTML includes the expected IDs");
+          }
+document.getElementById('current-year').textContent = new Date().getFullYear();
+          /* ---------------------- Utilities ---------------------- */
+          function showToast(type, message, ms = 3200) {
+            if (!afToastHost) return;
+            const el = document.createElement("div");
+            el.className = `af-toast ${type}`;
+            el.textContent = message;
+            afToastHost.appendChild(el);
+            setTimeout(() => {
+              el.style.transition = 'opacity .25s ease, transform .25s ease';
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(-6px)';
+              setTimeout(() => afToastHost.removeChild(el), 260);
+            }, ms);
+          }
+
+          function openBackdrop() {
+            backdrop.style.display = "flex";
+            backdrop.removeAttribute("aria-hidden");
+          }
+
+          function closeBackdrop() {
+            backdrop.style.display = "none";
+            backdrop.setAttribute("aria-hidden", "true");
+          }
+
+          /* ---------------------- Render package cards ---------------------- */
+          function renderSection(list, mountEl, label) {
+            if (!mountEl) return;
+            mountEl.innerHTML = "";
+            list.forEach((p, idx) => {
+              const el = document.createElement("article");
+              el.className = "service-card";
+              // Use data attributes instead of duplicate IDs
+              el.innerHTML = `
+        ${p.tag ? `<span class="chip">${p.tag}</span>` : ""}
+        <div class="speed">${p.speed}</div>
+        <div class="tier">${label}</div>
+        <div class="price">${toRand(p.price)} <span class="per">per month</span></div>
+        <div class="check-btn"><button type="button" class="btn btn-dark openCoverage" data-speed="${encodeURIComponent(p.speed)}" data-price="${p.price}" data-cat="${p.cat}" data-idx="${idx}">Check coverage</button></div>
+      `;
+              mountEl.appendChild(el);
+            });
+          }
+
+          /* ---------------------- Event delegation for package buttons ---------------------- */
+          document.addEventListener("click", (e) => {
+            const btn = e.target.closest && e.target.closest('.openCoverage');
+            if (!btn) return;
+            // When user clicks any 'Check coverage' button open modal and focus
+            e.preventDefault();
+            modalTitle.textContent = "Check coverage";
+            // Optionally populate a hint in the modal (not included in original markup) — we store selected details
+            const sel = {
+              speed: decodeURIComponent(btn.dataset.speed || ""),
+              price: btn.dataset.price ? Number(btn.dataset.price) : undefined,
+              cat: btn.dataset.cat || undefined,
+              idx: btn.dataset.idx
+            };
+            // store last selected into backdrop dataset for later use
+            backdrop.dataset.selected = JSON.stringify(sel);
+
+            // ensure coverage form is visible
+            const bodyContent = modalBody.querySelector('.content');
+            if (!bodyContent) {
+              // fallback: replace modal body with the known coverageForm
+              modalBody.innerHTML = '';
+              const wrapper = document.createElement('div');
+              wrapper.className = 'content';
+              wrapper.appendChild(coverageForm);
+              modalBody.appendChild(wrapper);
+            } else {
+              // ensure coverageForm is inside modal body
+              if (!modalBody.contains(coverageForm)) {
+                modalBody.innerHTML = '';
+                const wrapper = document.createElement('div');
+                wrapper.className = 'content';
+                wrapper.appendChild(coverageForm);
+                modalBody.appendChild(wrapper);
+              }
+            }
+
+            openBackdrop();
+            setTimeout(() => {
+              const house = document.getElementById('houseNumber');
+              if (house) house.focus();
+            }, 30);
+          });
+
+          /* ---------------------- Modal controls ---------------------- */
+          cancelBtn && cancelBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeBackdrop();
+          });
+
+          // Prevent backdrop clicks from closing modal (as per original behaviour)
+          backdrop && backdrop.addEventListener('click', (e) => {
+            const modal = backdrop.querySelector('.af-modal');
+            const isInsideModal = modal && modal.contains(e.target);
+            if (!isInsideModal) {
+              e.stopPropagation();
+              e.preventDefault();
+            }
+          });
+
+          /* ---------------------- Coverage API call ---------------------- */
+          async function checkCoverage(address) {
+            // Keep same endpoint and error handling as original
+            const res = await fetch('https://cb95-105-119-23-240.ngrok-free.app/openserve/product-qualification', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(address)
+            });
+            if (!res.ok) {
+              const t = await res.text().catch(() => '');
+              throw new Error(t || 'Coverage check failed');
+            }
+            return res.json();
+          }
+
+          /* ---------------------- Coverage form submit (render results) ---------------------- */
+          coverageForm && coverageForm.addEventListener('submit', async (ev) => {
+            ev.preventDefault();
+            // clear previous errors
+            coverageForm.querySelectorAll('.error-text').forEach(el => el.textContent = '');
+            coverageForm.querySelectorAll('.af-field').forEach(f => f.classList.remove('invalid'));
+
+            if (!coverageForm.reportValidity()) return;
+
+            const address = {
+              houseNumber: coverageForm.houseNumber.value.trim(),
+              streetName: coverageForm.streetName.value.trim(),
+              buildingName: coverageForm.buildingName.value.trim() || undefined,
+              unitNumber: coverageForm.unitNumber?.value.trim() || undefined,
+              floorNumber: coverageForm.floorNumber?.value.trim() || undefined,
+              suburbName: coverageForm.suburbName.value.trim(),
+              cityName: coverageForm.cityName.value.trim(),
+              province: coverageForm.province.value.trim(),
+              postalCode: coverageForm.postalCode.value.trim()
+            };
+
+            // simple inline validation
+            let valid = true;
+
+            function showErrorField(el, msg) {
+              const parent = el.closest('.af-field');
+              const err = parent && parent.querySelector('.error-text');
+              if (err) err.textContent = msg;
+              parent && parent.classList.add('invalid');
+              valid = false;
+            }
+
+            if (address.streetName.length < 3) showErrorField(coverageForm.streetName, 'Please enter a valid street name.');
+            if (address.suburbName.length < 2) showErrorField(coverageForm.suburbName, 'Enter a valid suburb name.');
+            if (address.cityName.length < 2) showErrorField(coverageForm.cityName, 'Enter a valid city name.');
+            if (address.province.length < 2) showErrorField(coverageForm.province, 'Enter a valid province name.');
+            if (!/^[0-9]{4}$/.test(address.postalCode)) showErrorField(coverageForm.postalCode, 'Postal code must be 4 digits.');
+
+            if (!valid) return;
+
+            // UI feedback
+            const prevText = submitBtn.textContent;
+            submitBtn.textContent = 'Checking availability…';
+            submitBtn.disabled = true;
+
+            try {
+              const result = await checkCoverage(address);
+              showToast('success', 'Coverage information received.');
+              renderResult(result, address);
+            } catch (err) {
+              console.error(err);
+              showToast('error', 'Unable to complete coverage check. Please try again.');
+            } finally {
+              submitBtn.textContent = prevText;
+              submitBtn.disabled = false;
+            }
+          });
+
+          /* ---------------------- Render result and signup flow ---------------------- */
+          function getOrdinal(n) {
+            const s = ["th", "st", "nd", "rd"];
+            const v = n % 100;
+            return n + (s[(v - 20) % 10] || s[v] || s[0]);
+          }
+
+          function renderProductsList(ftthProductInfo) {
+            if (!ftthProductInfo || !ftthProductInfo.length) return '<p>No products.</p>';
+            const order = ["OWC", "OWS", "OFC"];
+            return `\n      <h4>Available Products:</h4>\n      <ul class="product-grid" style="list-style:none; padding:0; margin:0;">\n        ${ftthProductInfo
+      .sort((a, b) => order.indexOf(a.ProductCode) - order.indexOf(b.ProductCode))
+      .map(p => {
+        const related = allPackages.filter(pkg => pkg.name.includes
+        
+        (p.ProductCode)).sort((a, b) => a.price - b.price);
+        const afrietaName = p.ProductCode === 'OFC' ? 'Afrieta Fibre Premium' : 'Afrieta Fibre';
+        return `\n          <li class="product-card" style="margin-bottom:16px;">\n            <h3 style="font-weight:800; margin-bottom:12px;">${afrietaName} (${p.ProductCode})</h3>\n            ${related.map(pkg => `\n              <div style="font-size:15px; opacity:.9; display:flex; flex-direction:column; margin-bottom:6px;">\n                <div><strong>Name:</strong> ${pkg.name.replace(/Afrieta Fibre (Premium )?${p.ProductCode}\s*/,'').trim()}</div>\n                <div><strong>Price:</strong> R${pkg.price.toLocaleString()}</div>\n              </div>\n              <hr style="margin:12px 0; border-color:rgba(255,255,255,0.1)">\n            `).join('')}\n          </li>\n        `;
+      }).join('')}\n      </ul>\n    `;
+          }
+
+          function renderResult(result, address) {
+            const {
+              FTTH_Status,
+              AddressInfo = {},
+              ftthProductInfo = []
+            } = result || {};
+            const status = (FTTH_Status || '').toLowerCase();
+            const isAvailable = status === 'working';
+            const badgeClass = isAvailable ? 'ok' : (status ? 'warn' : 'err');
+            const badgeText = isAvailable ? 'Available' : 'Not Available';
+            const buildingList = AddressInfo.buildingNumberInfo?.buildingInfo || [];
+
+            modalTitle.textContent = 'Coverage results';
+            modalBody.innerHTML = `
+      <div class="result-block">
+        <div class="content">
+          ${isAvailable ? `
+            <p><strong>Status:</strong> <span class="badge ${badgeClass}">${badgeText}</span></p>
+            <p><strong>AMID:</strong> ${AddressInfo.AMID || '—'}</p>
+            <div class="addr" style="margin-top:8px;">
+              <p><strong>Address:</strong> <span style="text-transform: uppercase; display:inline;">${AddressInfo.LR_Address || `${address.houseNumber} ${address.streetName}`}</span></p>
+              <p>${[AddressInfo.LR_SUBURB, AddressInfo.LR_TOWN, AddressInfo.LR_PROVINCE, address.postalCode].filter(Boolean).join(', ')}</p>
+            </div>
+            <hr style="margin:12px 0; border-color:rgba(255,255,255,0.1)">
+            ${buildingList.length > 0 ? `
+              <div class="af-field">
+                <label for="unitSelect">This is a multi-dwelling unit (MDU), please select your unit to view available products:</label>
+                <select id="unitSelect" required>
+                  <option value="">-- Select Unit --</option>
+                  ${buildingList.map(b => {
+                    const floorLabel = b.FLOOR.toLowerCase().includes('ground') ? 'Ground floor' : (isNaN(parseInt(b.FLOOR)) ? b.FLOOR : `${getOrdinal(parseInt(b.FLOOR))} floor`);
+                    return `<option value="${b.NUM}|${b.FLOOR}|${b.BUILDING_NAME}">Unit ${b.NUM}, ${floorLabel}</option>`;
+                  }).join('')}
+                </select>
+                <small class="error-text" id="error-unitSelect"></small>
+              </div>
+              <div id="productList" style="display:none; margin-top:20px;"></div>
+            ` : `
+              <div id="productList" style="margin-top:20px;">${renderProductsList(ftthProductInfo)}</div>
+            `}
+          ` : `
+            <h5 style="margin-bottom: 30px; font-size: 18px;">We are sorry, OpenServe Fibre is not available in this area.</h5>
+          `}
+        </div>
+        <div class="af-actions" style="margin-top:16px;">
+          <button type="button" class="btn btn-dark" id="backBtn">Back</button>
+          ${isAvailable ? `<button type="button" class="btn btn-primary" id="continueBtn" ${buildingList.length > 0 ? 'disabled' : ''}>Signup Now</button>` : `<button type="button" class="btn btn-primary" id="tryAgainBtn">Try another address</button>`}
+        </div>
+      </div>
+    `;
+
+            // attach small behaviour
+            const backBtn = document.getElementById('backBtn');
+            backBtn && backBtn.addEventListener('click', () => {
+              modalTitle.textContent = 'Check coverage';
+              modalBody.innerHTML = '';
+              const wrapper = document.createElement('div');
+              wrapper.className = 'content';
+              wrapper.appendChild(coverageForm);
+              modalBody.appendChild(wrapper);
+              setTimeout(() => document.getElementById('houseNumber')?.focus(), 20);
+            });
+
+            const tryAgainBtn = document.getElementById('tryAgainBtn');
+            tryAgainBtn && tryAgainBtn.addEventListener('click', () => {
+              modalTitle.textContent = 'Check coverage';
+              modalBody.innerHTML = '';
+              const wrapper = document.createElement('div');
+              wrapper.className = 'content';
+              wrapper.appendChild(coverageForm);
+              modalBody.appendChild(wrapper);
+              setTimeout(() => document.getElementById('houseNumber')?.focus(), 20);
+            });
+
+            const productListEl = document.getElementById('productList');
+            const continueBtn = document.getElementById('continueBtn');
+            const unitSelect = document.getElementById('unitSelect');
+
+            if (unitSelect) {
+              unitSelect.addEventListener('change', () => {
+                if (unitSelect.value) {
+                  productListEl.style.display = 'block';
+                  productListEl.innerHTML = renderProductsList(ftthProductInfo);
+                  continueBtn.disabled = false;
+                } else {
+                  productListEl.style.display = 'none';
+                  productListEl.innerHTML = '';
+                  continueBtn.disabled = true;
+                }
+              });
+            }
+
+            if (continueBtn) {
+              continueBtn.addEventListener('click', () => {
+                let selectedUnit, selectedFloor, buildingName;
+                if (unitSelect && unitSelect.value) {
+                  const [num, floor, bname] = unitSelect.value.split('|');
+                  selectedUnit = num;
+                  selectedFloor = floor;
+                  buildingName = bname;
+                }
+                // pass building/unit/floor to signup renderer
+                renderSignupForm(result, {
+                  ...address,
+                  buildingName: buildingName || address.buildingName,
+                  unitNumber: selectedUnit,
+                  floorNumber: selectedFloor
+                });
+
+                embedWrap.classList.remove('hidden');
+                closeBackdrop();
+                embedWrap.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              });
+            }
+          }
+
+          /* ---------------------- Render signup form (inject) ---------------------- */
+          function renderSignupForm(result, address) {
+            const {
+              AddressInfo = {}, ftthProductInfo = []
+            } = result || {};
+            const building = address.buildingName || AddressInfo.LR_BUILDING_NAME || '';
+            const unit = address.unitNumber || AddressInfo.LR_UNIT || '';
+            const floor = address.floorNumber || AddressInfo.LR_FLOOR || '';
+
+            // build options grouped by product code
+            const packageOptions = (ftthProductInfo || []).map(product => {
+              const relatedPackages = allPackages.filter(pkg => pkg.name.includes(product.ProductCode));
+              if (!relatedPackages.length) return '';
+              let label = product.ProductName === 'Openserve Fibre Connect' ? 'Afrieta Premium Fibre OFC' : (product.ProductName === 'Openserve Web Connect' ? 'Afrieta Fibre OWC' : (product.ProductName === 'Openserve Webstream' ? 'Afrieta Fibre OWS' : 'Afrieta Fibre OWCA'));
+              const options = relatedPackages.map(pkg => `<option value="${pkg.name}|${pkg.price}">${pkg.name} — R${pkg.price.toLocaleString()}</option>`).join('');
+              return `<optgroup label="${label}">${options}</optgroup>`;
+            }).join('');
+
+            // Use unique IDs in signup form to avoid collisions with coverage form
+            signupFormContainer.innerHTML = `
+      <form id="signupForm" novalidate>
+        <h2>Afrieta Fibre Sign-up</h2>
+        <div class="af-grid-3">
+          <div class="af-field"><label>Title</label><input id="su_title" required /></div>
+          <div class="af-field"><label>First name</label><input id="su_firstName" required minlength="3" maxlength="16" pattern="[A-Za-z ]+" /><small class="error-text" id="error-su_firstName"></small></div>
+          <div class="af-field"><label>Last name</label><input id="su_lastName" required minlength="3" maxlength="16" pattern="[A-Za-z ]+" /><small class="error-text" id="error-su_lastName"></small></div>
+        </div>
+        <div class="af-grid-3">
+          <div class="af-field"><label>Email Address</label><input id="su_email" type="email" required /><small class="error-text" id="error-su_email"></small></div>
+          <div class="af-field"><label>Phone Number</label><input id="su_phone" type="tel" required minlength="4" maxlength="15" /><small class="error-text" id="error-su_phone"></small></div>
+          <div class="af-field"><label>WhatsApp Number (optional)</label><input id="su_whatsapp" type="tel" minlength="4" maxlength="15" /><small class="error-text" id="error-su_whatsapp"></small></div>
+        </div>
+        <div class="af-field"><label>Identity Number / Passport Number</label><input id="su_idNumber" required minlength="4" maxlength="17" /><small class="error-text" id="error-su_idNumber"></small></div>
+
+        <h3>Address</h3>
+        <div class="af-grid-2">
+          <div class="af-field"><label>House number</label><input id="su_addr_house" value="${address.houseNumber || ''}" readonly /></div>
+          <div class="af-field"><label>Street name</label><input id="su_addr_street" value="${address.streetName || ''}" readonly /></div>
+        </div>
+        <div class="af-grid-3">
+          ${unit ? `<div class="af-field"><label>Unit number</label><input id="su_addr_unit" value="${unit}" readonly /></div>` : ''}
+          ${floor ? `<div class="af-field"><label>Floor number</label><input id="su_addr_floor" value="${floor}" readonly /></div>` : ''}
+          ${building ? `<div class="af-field"><label>Building name/number</label><input id="su_addr_building" value="${building}" readonly /></div>` : ''}
+        </div>
+        <div class="af-grid-3">
+          <div class="af-field"><label>Suburb</label><input id="su_addr_suburb" value="${address.suburbName || ''}" readonly /></div>
+          <div class="af-field"><label>Province</label><input id="su_addr_province" value="${address.province || ''}" readonly /></div>
+          <div class="af-field"><label>Postal code</label><input id="su_addr_postal" value="${address.postalCode || ''}" readonly /></div>
+        </div>
+
+        <h3>Connection Details</h3>
+        <div class="af-grid-3">
+          <div class="af-field">
+            <label>Select your package</label>
+            <select id="su_packageCode" required>
+              <option value="">-- Select --</option>
+              ${packageOptions}
+            </select>
+            <small class="error-text" id="error-su_packageCode"></small>
+          </div>
+          <div class="af-field"><label>Name of sales representative/agent?</label><input id="su_wifiName" />
+            <!-- <small class="error-text" id="error-su_wifiName"></small> -->
+          </div>
+          <div class="af-field"><label>Where did you hear about Afrieta Fibre?</label><input id="su_wifiPassword" type="text" />
+            <!-- <small class="error-text" id="error-su_wifiPassword"></small> -->
+          </div>
+        </div>
+
+        <label style="display:flex; gap:8px; align-items:flex-start; margin-top:10px;">
+          <input type="checkbox" id="su_acceptTerms" required />
+          <div>
+            <p>By submitting this form, the customer agrees to the full Afrieta T&Cs, and the customer agrees to be bound thereto. The customer is recommended to refer to the full <a class="terms" style="display: inline;" href="openserve-terms.html">Terms & Conditions</a></p>
+            <small class="error-text" id="error-su_acceptTerms"></small>
+          </div>
+        </label>
+
+        <div class="af-actions" style="margin-top:16px;">
+          <button type="submit" class="btn btn-dark" id="signupSubmitBtn">Submit Application</button>
+        </div>
+      </form>
+    `;
+
+            // Attach simple input clearing handlers
+            const signupForm = document.getElementById('signupForm');
+            signupForm.querySelectorAll('input, select').forEach(el => {
+              el.addEventListener('input', () => {
+                const parent = el.closest('.af-field');
+                parent && parent.classList.remove('invalid');
+                const err = parent && parent.querySelector('.error-text');
+                if (err) err.textContent = '';
+              });
+            });
+
+            signupForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              // clear previous
+              signupForm.querySelectorAll('.error-text').forEach(x => x.textContent = '');
+              signupForm.querySelectorAll('.af-field').forEach(x => x.classList.remove('invalid'));
+
+              const get = id => document.getElementById(id).value.trim();
+              const firstName = get('su_firstName');
+              const lastName = get('su_lastName');
+              const phone = get('su_phone');
+              const email = get('su_email');
+              const whatsapp = get('su_whatsapp');
+              const idNumber = get('su_idNumber');
+              const packageCode = get('su_packageCode');
+              const wifiName = get('su_wifiName');
+              const wifiPassword = get('su_wifiPassword');
+              const acceptTerms = document.getElementById('su_acceptTerms');
+
+              let valid = true;
+
+              function showError(id, msg) {
+                const input = document.getElementById(id);
+                const parent = input.closest('.af-field');
+                const err = parent && parent.querySelector('.error-text');
+                if (err) err.textContent = msg;
+                parent && parent.classList.add('invalid');
+                valid = false;
+              }
+
+              const nameRegex = /^[A-Za-z\s'-]{3,16}$/;
+              const phoneRegex = /^(\+|0)[0-9]{3,14}$/;
+              const idRegex = /^[A-Za-z0-9]{4,17}$/;
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+              if (!nameRegex.test(firstName)) showError('su_firstName', 'First name must be 3–16 letters only.');
+              if (!nameRegex.test(lastName)) showError('su_lastName', 'Last name must be 3–16 letters only.');
+              if (!phoneRegex.test(phone)) showError('su_phone', 'Enter a valid phone number (starts with 0 or +, 4–15 digits).');
+              if (whatsapp && !phoneRegex.test(whatsapp)) showError('su_whatsapp', 'Invalid WhatsApp number format.');
+              if (!idRegex.test(idNumber)) showError('su_idNumber', 'ID or Passport must be 4–17 letters/numbers.');
+              if (!packageCode) showError('su_packageCode', 'Please select a package.');
+              if (!emailRegex.test(email)) showError('su_email', 'Please enter a valid email address.');
+              //if (!wifiName) showError('su_wifiName', 'Please enter the name you want your WIFI to be called.');
+              //if (!wifiPassword) showError('su_wifiPassword', 'Please enter a password for your WIFI.');
+              if (!acceptTerms.checked) {
+                const err = document.getElementById('error-su_acceptTerms');
+                if (err) err.textContent = 'You must agree to the terms before submitting.';
+                valid = false;
+              }
+
+              if (!valid) return;
+
+              const submitBtn = document.getElementById('signupSubmitBtn');
+              submitBtn.disabled = true;
+              const prevText = submitBtn.textContent;
+              submitBtn.textContent = 'Submitting…';
+
+              const payload = {
+                title: document.getElementById('su_title').value.trim(),
+                firstName,
+                lastName,
+                email,
+                phone,
+                whatsapp,
+                idNumber,
+                wifiName,
+                wifiPassword,
+                packageCode,
+                address: {
+                  houseNumber: address.houseNumber,
+                  streetName: address.streetName,
+                  buildingName: address.buildingName,
+                  unitNumber: address.unitNumber,
+                  floorNumber: address.floorNumber,
+                  suburbName: address.suburbName,
+                  province: address.province,
+                  postalCode: address.postalCode
+                }
+              };
+
+              try {
+                const res = await fetch('https://cb95-105-119-23-240.ngrok-free.app/provision-fibre', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(payload)
+                });
+                if (!res.ok) {
+                  const t = await res.text().catch(() => '');
+                  throw new Error(t || 'Registration failed');
+                }
+                const data = await res.json();
+                showToast('success', 'Application submitted successfully!');
+                showQuoteModal(data.quote, payload.packageCode);
+                signupForm.reset();
+                // optionally hide signup UI
+                signupFormContainer.style.display = 'none';
+              } catch (err) {
+                console.error(err);
+                showToast('error', err.message || 'Submission failed');
+              } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = prevText;
+              }
+            });
+          }
+
+          /* ---------------------- Quote modal ---------------------- */
+          function showQuoteModal(quote, selectedPackage) {
+            if (!quote) return;
+            modalTitle.textContent = 'Your Afrieta Quote';
+            modalBody.innerHTML = `\n      <div class="result-block">\n        <h3 style="margin-bottom: 10px;">Thank you for your application!</h3>\n        <p style="font-size:16px; margin-bottom:20px;">Your quote <strong>${quote.number}</strong> has been generated successfully.</p>\n        <blockquote style="border-left: 4px solid #ee06ee; padding-left: 10px; color: #9be6d2; font-style: italic;">“Connectivity is not a luxury; it’s the heartbeat of opportunity.” – Afrieta</blockquote>\n        <div style="margin-bottom:20px;">\n          <h4 style="margin-bottom:6px;">Quote Summary</h4>\n          <p><strong>Package:</strong> ${quote.items[0]?.name || selectedPackage}</p>\n          <p><strong>Amount:</strong> <b style="font-size:18px;color:#ee06ee;">R${quote.summary?.grandTotal?.toLocaleString("en-ZA")}</b></p>\n          <p><strong>Payment Reference:</strong> OID${quote.client?.cid}</p>\n          <p><strong>Generated At:</strong> ${new Date(quote.createdAt).toLocaleString()}</p>\n        </div>\n        <div style="margin-bottom:20px;">\n          <h4 style="margin-bottom:6px;">Payment Details</h4>\n          <p><strong>${quote.organization.payment.bankAccountName}</strong></p>\n          <p>${quote.organization.payment.detail1}</p>\n          <p>${quote.organization.payment.detail2}</p>\n        </div>\n        <p style="margin-bottom:12px;">Please make payment using your payment reference, to activate installation. Once payment is confirmed, installation will be scheduled within <strong>5–7 working days</strong>.</p>\n        <p style="margin-bottom:24px; font-weight:600;">A copy of this quote has been sent to your email.</p>\n        <div class="af-actions" style="margin-top:16px;">\n          <button type="button" class="btn btn-primary" id="closeQuoteBtn">Close</button>\n        </div>\n      </div>\n    `;
+
+            openBackdrop();
+
+            document.getElementById('closeQuoteBtn')?.addEventListener('click', () => {
+              signupFormContainer.style.display = 'none';
+              closeBackdrop();
+            });
+          }
+
+          /* ---------------------- Init ---------------------- */
+          function init() {
+            renderSection(AIR_CONNECT, hosts.airconnect, 'AirConnect');
+            renderSection(WEB_CONNECT, hosts.webconnect, 'WebConnect');
+            renderSection(WEB_STREAM, hosts.webstream, 'WebStream');
+
+            // mobile nav and header logic re-used from original
+            const navbar = document.querySelector('[data-navbar]');
+            const navTogglers = document.querySelectorAll('[data-nav-toggler]');
+            const overlay = document.querySelector('[data-overlay]');
+            const toggleNavbar = () => {
+              navbar.classList.toggle('active');
+              overlay.classList.toggle('active');
+              document.body.classList.toggle('nav-active');
+            };
+            navTogglers.forEach(n => n.addEventListener('click', toggleNavbar));
+
+            const header = document.querySelector('[data-header]');
+            window.addEventListener('scroll', () => header && header.classList.toggle('active', window.scrollY > 100));
+          }
+
+          // run
+          document.addEventListener('DOMContentLoaded', init);
+        })();
+
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Your site-wide JS (if any) -->
+  <!-- <script src="./assets/js/script.js"></script> -->
+</body>
+
+</html>
