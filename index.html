@@ -870,7 +870,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
           /* ---------------------- Coverage API call ---------------------- */
           async function checkCoverage(address) {
             // Keep same endpoint and error handling as original
-            const res = await fetch('https://cb95-105-119-23-240.ngrok-free.app/openserve/product-qualification', {
+            const res = await fetch('https://api.afrieta.com/openserve/product-qualification-test', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -1255,7 +1255,7 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
               };
 
               try {
-                const res = await fetch('https://cb95-105-119-23-240.ngrok-free.app/provision-fibre', {
+                const res = await fetch('https://api.afrieta.com/provision-fibre-test', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json'
